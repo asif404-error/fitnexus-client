@@ -48,7 +48,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2 group">
             <Dumbbell className="w-7 h-7 text-emerald-400 transition-transform group-hover:rotate-12" />
             <span className={`text-xl font-bold tracking-tight ${textColor}`}>
-              Fit<span className="text-emerald-400">Pulse</span>
+              Fit<span className="text-emerald-400">Nexus</span>
             </span>
           </Link>
 
