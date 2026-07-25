@@ -170,7 +170,7 @@ export default function DashboardLayout({ children }) {
         <Link href="/dashboard" className="flex items-center gap-2.5">
           <Dumbbell className="w-7 h-7 text-emerald-400" />
           <span className="text-xl font-bold text-white tracking-tight">
-            Fit<span className="text-emerald-400">Pulse</span>
+            Fit<span className="text-emerald-400">Nexus</span>
           </span>
         </Link>
       </div>
@@ -278,7 +278,7 @@ export default function DashboardLayout({ children }) {
           <Link href="/dashboard" className="flex items-center gap-2">
             <Dumbbell className="w-6 h-6 text-emerald-400" />
             <span className="text-lg font-bold text-white">
-              Fit<span className="text-emerald-400">Pulse</span>
+              Fit<span className="text-emerald-400">Nexus</span>
             </span>
           </Link>
         </div>
