@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { FileText, Image, Send, Loader2 } from "lucide-react";
+import { FileText, Image as TImage, Send, Loader2 } from "lucide-react";
 import api from "@/lib/api";
 import toast from "react-hot-toast";
 import Image from "next/image";
@@ -79,7 +79,7 @@ export default function AdminAddPostPage() {
 
           <div>
             <label className="flex items-center gap-2 text-sm font-medium text-gray-400 mb-2">
-              <Image className="w-4 h-4" /> Image URL{" "}
+              <TImage className="w-4 h-4" /> Image URL{" "}
               <span className="text-gray-600">(optional)</span>
             </label>
             <input
