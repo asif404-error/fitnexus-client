@@ -72,7 +72,7 @@ export default function LoginPage() {
 
   const handleGoogleLogin = async () => {
     try {
-      const result = await signIn.social({ provider: 'google', callbackURL: 'http://localhost:3000/' });
+      const result = await signIn.social({ provider: 'google', callbackURL:  `${process.env.NEXT_PUBLIC_CLIENT_URL}/`  });
       if (result?.error) {
         toast.error('Google login is not configured yet. Please use email/password.');
       }
