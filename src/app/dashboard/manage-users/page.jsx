@@ -103,7 +103,7 @@ export default function ManageUsersPage() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold dark:text-white mb-3">
             Manage Users
           </h1>
           <p className="text-gray-400 text-lg">
@@ -117,7 +117,7 @@ export default function ManageUsersPage() {
             placeholder="Search by name or email..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 px-4 py-3 bg-[#1e293b] border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all"
+            className="flex-1 px-4 py-3 dark:bg-[#1e293b] bg-sky-900  border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all"
           />
           <button
             type="submit"
@@ -161,22 +161,22 @@ export default function ManageUsersPage() {
               transition={{ duration: 0.4 }}
               className="hidden md:block bg-[#1e293b] rounded-2xl border border-white/5 overflow-hidden"
             >
-              <table className="w-full">
+              <table className="w-full bg-sky-900 dark:bg-black">
                 <thead>
                   <tr className="border-b border-white/5">
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold dark:text-gray-400 text-white">
                       Name
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold dark:text-gray-400 text-white">
                       Email
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold dark:text-gray-400 text-white">
                       Role
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold dark:text-gray-400 text-white">
                       Status
                     </th>
-                    <th className="text-right px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-right px-6 py-4 text-sm font-semibold dark:text-gray-400 text-white">
                       Actions
                     </th>
                   </tr>
@@ -207,7 +207,7 @@ export default function ManageUsersPage() {
                           </span>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-gray-400">{u.email}</td>
+                      <td className="px-6 py-4 dark:text-gray-400 text-white">{u.email}</td>
                       <td className="px-6 py-4">
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-semibold capitalize ${getRoleBadge(u.role)}`}

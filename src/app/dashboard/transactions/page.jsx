@@ -47,7 +47,7 @@ export default function TransactionsPage() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold dark:text-white mb-3">
             Transactions
           </h1>
           <p className="text-gray-400 text-lg">View all payment transactions</p>
@@ -58,13 +58,15 @@ export default function TransactionsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-8 bg-[#1e293b] rounded-2xl border border-white/5 p-6 flex items-center gap-4"
+            className="mb-8 bg-sky-900 dark:bg-black rounded-2xl border border-white/5 p-6 flex items-center gap-4"
           >
             <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0">
               <DollarSign className="w-6 h-6 text-emerald-400" />
             </div>
             <div>
-              <p className="text-sm text-gray-400">Total Revenue</p>
+              <p className="text-sm dark:text-gray-400 text-white">
+                Total Revenue
+              </p>
               <p className="text-2xl font-bold text-emerald-400">
                 ${totalRevenue.toFixed(2)}
               </p>
@@ -106,29 +108,28 @@ export default function TransactionsPage() {
           </div>
         ) : (
           <>
-
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
               className="hidden md:block bg-[#1e293b] rounded-2xl border border-white/5 overflow-hidden"
             >
-              <table className="w-full">
+              <table className="w-full bg-sky-900 dark:bg-black">
                 <thead>
                   <tr className="border-b border-white/5">
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       User Email
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Class Name
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Amount
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Transaction ID
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Date
                     </th>
                   </tr>
@@ -139,10 +140,10 @@ export default function TransactionsPage() {
                       key={t._id || idx}
                       className="border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors"
                     >
-                      <td className="px-6 py-4 text-gray-300">
+                      <td className="px-6 py-4 text-white dark:text-gray-400">
                         {t.user?.email || t.userEmail || "N/A"}
                       </td>
-                      <td className="px-6 py-4 text-white">
+                      <td className="px-6 py-4 text-white dark:text-gray-400">
                         {t.class?.name || t.className || "N/A"}
                       </td>
                       <td className="px-6 py-4">
@@ -152,7 +153,7 @@ export default function TransactionsPage() {
                       </td>
                       <td className="px-6 py-4">
                         <span
-                          className="text-gray-400 text-sm font-mono"
+                          className="text-white dark:text-gray-400 text-sm font-mono"
                           title={t.transactionId || t._id}
                         >
                           {truncateId(
@@ -160,7 +161,7 @@ export default function TransactionsPage() {
                           )}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-gray-400 text-sm">
+                      <td className="px-6 py-4 text-white dark:text-gray-400text-sm">
                         {t.createdAt
                           ? format(new Date(t.createdAt), "MMM d, yyyy")
                           : "N/A"}

@@ -63,7 +63,6 @@ body {
   font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
 }
 
-/* Reusable theme utility classes */
 .bg-theme-primary { background-color: var(--background); }
 .bg-theme-card { background-color: var(--card); }
 .bg-theme-input { background-color: var(--input-bg); }

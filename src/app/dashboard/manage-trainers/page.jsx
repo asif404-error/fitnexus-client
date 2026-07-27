@@ -83,7 +83,7 @@ export default function ManageTrainersPage() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold dark:text-white mb-3">
             Manage Trainers
           </h1>
           <p className="text-gray-400 text-lg">
@@ -97,7 +97,7 @@ export default function ManageTrainersPage() {
             placeholder="Search by name or email..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 px-4 py-3 bg-[#1e293b] border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all"
+            className="flex-1 px-4 py-3 dark:bg-[#1e293b] bg-sky-900 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all"
           />
           <button
             type="submit"
@@ -112,7 +112,7 @@ export default function ManageTrainersPage() {
             {[...Array(3)].map((_, i) => (
               <div
                 key={i}
-                className="bg-[#1e293b] rounded-xl p-5 animate-pulse"
+                className="dark:bg-[#1e293b] rounded-xl p-5 animate-pulse"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 bg-white/5 rounded-full" />
@@ -134,26 +134,25 @@ export default function ManageTrainersPage() {
           </div>
         ) : (
           <>
-
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
               className="hidden md:block bg-[#1e293b] rounded-2xl border border-white/5 overflow-hidden"
             >
-              <table className="w-full">
+              <table className="w-full bg-sky-900 dark:bg-black">
                 <thead>
                   <tr className="border-b border-white/5">
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Name
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Email
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Specialty
                     </th>
-                    <th className="text-right px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-right px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Actions
                     </th>
                   </tr>
@@ -184,8 +183,10 @@ export default function ManageTrainersPage() {
                           </span>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-gray-400">{t.email}</td>
-                      <td className="px-6 py-4 text-gray-400">
+                      <td className="px-6 py-4 dark:text-gray-400 text-white">
+                        {t.email}
+                      </td>
+                      <td className="px-6 py-4 text-white dark:text-gray-400">
                         {t.trainerSpecialty || "N/A"}
                       </td>
                       <td className="px-6 py-4 text-right">

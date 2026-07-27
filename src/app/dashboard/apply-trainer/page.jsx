@@ -1,26 +1,32 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { useForm } from 'react-hook-form';
-import { motion } from 'framer-motion';
-import { GraduationCap, Loader2, AlertTriangle, CheckCircle2, ArrowLeft } from 'lucide-react';
-import toast from 'react-hot-toast';
-import api from '@/lib/api';
-import { useAuth } from '@/providers/AuthProvider';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
+import {
+  GraduationCap,
+  Loader2,
+  AlertTriangle,
+  CheckCircle2,
+  ArrowLeft,
+} from "lucide-react";
+import toast from "react-hot-toast";
+import api from "@/lib/api";
+import { useAuth } from "@/providers/AuthProvider";
 
 const specialties = [
-  'Yoga',
-  'Cardio',
-  'Strength',
-  'HIIT',
-  'Pilates',
-  'Dance',
-  'Boxing',
-  'CrossFit',
-  'Weight Training',
-  'Functional Training',
+  "Yoga",
+  "Cardio",
+  "Strength",
+  "HIIT",
+  "Pilates",
+  "Dance",
+  "Boxing",
+  "CrossFit",
+  "Weight Training",
+  "Functional Training",
 ];
 
 export default function ApplyTrainerPage() {
@@ -36,9 +42,9 @@ export default function ApplyTrainerPage() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      experience: '',
-      specialty: '',
-      additionalInfo: '',
+      experience: "",
+      specialty: "",
+      additionalInfo: "",
     },
   });
 
@@ -46,13 +52,16 @@ export default function ApplyTrainerPage() {
     if (authLoading) return;
     if (!user) return;
 
-    if (user.role === 'trainer' || user.role === 'admin') {
-      setApplicationStatus('already-trainer');
+    if (user.role === "trainer" || user.role === "admin") {
+      setApplicationStatus("already-trainer");
       setLoading(false);
       return;
     }
 
-    if (user.trainerApplicationStatus && user.trainerApplicationStatus !== 'none') {
+    if (
+      user.trainerApplicationStatus &&
+      user.trainerApplicationStatus !== "none"
+    ) {
       setApplicationStatus(user.trainerApplicationStatus);
     }
     setLoading(false);
@@ -63,15 +72,18 @@ export default function ApplyTrainerPage() {
     setSubmitting(true);
 
     try {
-      await api.patch('/users/apply-trainer', {
+      await api.patch("/users/apply-trainer", {
         experience: Number(data.experience),
         specialty: data.specialty,
         additionalInfo: data.additionalInfo || undefined,
       });
-      toast.success('Application submitted successfully!');
-      router.push('/dashboard');
+      toast.success("Application submitted successfully!");
+      router.push("/dashboard");
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Failed to submit application. Please try again.');
+      toast.error(
+        err.response?.data?.message ||
+          "Failed to submit application. Please try again.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -95,7 +107,7 @@ export default function ApplyTrainerPage() {
     );
   }
 
-  if (applicationStatus === 'already-trainer') {
+  if (applicationStatus === "already-trainer") {
     return (
       <div className="min-h-screen flex items-center justify-center px-4">
         <motion.div
@@ -107,8 +119,12 @@ export default function ApplyTrainerPage() {
           <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4">
             <CheckCircle2 className="w-8 h-8 text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-white mb-2">Already a Trainer</h2>
-          <p className="text-gray-400 mb-6">You already have trainer privileges on FitNexus.</p>
+          <h2 className="text-2xl font-bold text-white mb-2">
+            Already a Trainer
+          </h2>
+          <p className="text-gray-400 mb-6">
+            You already have trainer privileges on FitNexus.
+          </p>
           <Link
             href="/dashboard"
             className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white font-semibold rounded-xl hover:bg-emerald-600 transition-all duration-300"
@@ -120,7 +136,7 @@ export default function ApplyTrainerPage() {
     );
   }
 
-  if (applicationStatus === 'pending') {
+  if (applicationStatus === "pending") {
     return (
       <div className="min-h-screen flex items-center justify-center px-4">
         <motion.div
@@ -132,8 +148,12 @@ export default function ApplyTrainerPage() {
           <div className="w-16 h-16 rounded-full bg-yellow-500/20 flex items-center justify-center mx-auto mb-4">
             <Loader2 className="w-8 h-8 text-yellow-400 animate-spin" />
           </div>
-          <h2 className="text-2xl font-bold text-white mb-2">Application Pending</h2>
-          <p className="text-gray-400 mb-6">Your application is pending. Please wait for admin review.</p>
+          <h2 className="text-2xl font-bold text-white mb-2">
+            Application Pending
+          </h2>
+          <p className="text-gray-400 mb-6">
+            Your application is pending. Please wait for admin review.
+          </p>
           <Link
             href="/dashboard"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 text-gray-300 font-semibold rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10"
@@ -145,7 +165,7 @@ export default function ApplyTrainerPage() {
     );
   }
 
-  const showReapplication = applicationStatus === 'rejected';
+  const showReapplication = applicationStatus === "rejected";
 
   return (
     <div className="min-h-screen py-10 md:py-16">
@@ -168,11 +188,13 @@ export default function ApplyTrainerPage() {
               <div className="flex items-start gap-3">
                 <AlertTriangle className="w-5 h-5 text-red-400 mt-0.5 shrink-0" />
                 <div>
-                  <h3 className="text-red-400 font-semibold text-sm">Application Rejected</h3>
+                  <h3 className="text-red-400 font-semibold text-sm">
+                    Application Rejected
+                  </h3>
                   <p className="text-red-400/80 text-sm mt-1">
-                    Your application was rejected. Admin feedback:{' '}
+                    Your application was rejected. Admin feedback:{" "}
                     <span className="font-medium text-red-300">
-                      {user?.trainerFeedback || 'No feedback provided.'}
+                      {user?.trainerFeedback || "No feedback provided."}
                     </span>
                   </p>
                 </div>
@@ -180,12 +202,14 @@ export default function ApplyTrainerPage() {
             </div>
           )}
 
-          <div className="bg-[#1e293b] rounded-2xl border border-white/5 p-6 md:p-8">
+          <div className="dark:bg-[#1e293b] bg-sky-900 rounded-2xl border border-white/5 p-6 md:p-8">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
                 <GraduationCap className="w-5 h-5 text-emerald-400" />
               </div>
-              <h1 className="text-2xl font-bold text-white">Apply as Trainer</h1>
+              <h1 className="text-2xl font-bold text-white">
+                Apply as Trainer
+              </h1>
             </div>
             <p className="text-gray-400 text-sm mb-8 ml-13">
               Fill out the form below to apply as a trainer on FitNexus
@@ -201,17 +225,22 @@ export default function ApplyTrainerPage() {
                   min="0"
                   max="50"
                   placeholder="e.g. 5"
-                  className={`w-full px-4 py-3 bg-[#0f172a] border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all ${
-                    errors.experience ? 'border-red-500' : 'border-white/10'
+                  className={`w-full px-4 py-3 dark:bg-[#0f172a] bg-gray-200 border rounded-xl dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all ${
+                    errors.experience ? "border-red-500" : "border-white/10"
                   }`}
-                  {...register('experience', {
-                    required: 'Years of experience is required',
-                    min: { value: 0, message: 'Experience must be at least 0' },
-                    max: { value: 50, message: 'Experience cannot exceed 50 years' },
+                  {...register("experience", {
+                    required: "Years of experience is required",
+                    min: { value: 0, message: "Experience must be at least 0" },
+                    max: {
+                      value: 50,
+                      message: "Experience cannot exceed 50 years",
+                    },
                   })}
                 />
                 {errors.experience && (
-                  <p className="text-red-400 text-xs mt-1.5">{errors.experience.message}</p>
+                  <p className="text-red-400 text-xs mt-1.5">
+                    {errors.experience.message}
+                  </p>
                 )}
               </div>
 
@@ -220,36 +249,46 @@ export default function ApplyTrainerPage() {
                   Specialty <span className="text-red-400">*</span>
                 </label>
                 <select
-                  className={`w-full px-4 py-3 bg-[#0f172a] border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all appearance-none cursor-pointer ${
-                    errors.specialty ? 'border-red-500' : 'border-white/10'
+                  className={`w-full px-4 py-3 dark:bg-[#0f172a] bg-gray-200 border rounded-xl dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all appearance-none cursor-pointer ${
+                    errors.specialty ? "border-red-500" : "border-white/10"
                   }`}
-                  {...register('specialty', {
-                    required: 'Please select a specialty',
+                  {...register("specialty", {
+                    required: "Please select a specialty",
                   })}
                 >
-                  <option value="" className="bg-[#0f172a] text-gray-500">
+                  <option
+                    value=""
+                    className="dark:bg-[#0f172a] bg-gray-200 dark:text-gray-500"
+                  >
                     Select a specialty
                   </option>
                   {specialties.map((s) => (
-                    <option key={s} value={s} className="bg-[#0f172a] text-white">
+                    <option
+                      key={s}
+                      value={s}
+                      className="dark:bg-[#0f172a] bg-gray-200 dark:text-white"
+                    >
                       {s}
                     </option>
                   ))}
                 </select>
                 {errors.specialty && (
-                  <p className="text-red-400 text-xs mt-1.5">{errors.specialty.message}</p>
+                  <p className="text-red-400 text-xs mt-1.5">
+                    {errors.specialty.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Additional Info <span className="text-gray-500">(optional)</span>
+                  Additional Info{" "}
+                  <span className="text-gray-500">(optional)</span>
                 </label>
                 <textarea
                   rows={4}
                   placeholder="Tell us more about your certifications, achievements, training philosophy..."
-                  className="w-full px-4 py-3 bg-[#0f172a] border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all resize-none"
-                  {...register('additionalInfo')}
+                  className="w-full px-4 py-3 dark:bg-[#0f172a] bg-gray-200 border border-white/10 rounded-xl dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all resize-none"
+                  {...register("additionalInfo")}
                 />
               </div>
 
@@ -264,7 +303,7 @@ export default function ApplyTrainerPage() {
                     Submitting...
                   </>
                 ) : (
-                  'Submit Application'
+                  "Submit Application"
                 )}
               </button>
             </form>

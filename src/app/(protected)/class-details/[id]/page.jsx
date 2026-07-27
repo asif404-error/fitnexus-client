@@ -126,7 +126,7 @@ export default function ClassDetailsPage() {
   const bookingCount = cls.bookingCount || cls.bookingsCount || 0;
 
   return (
-    <div className="min-h-screen bg-[#0a0f1a]">
+    <div className="min-h-screen ">
       <div className="relative w-full h-[350px] md:h-[420px] overflow-hidden">
         {cls.image ? (
           <Image
@@ -176,92 +176,128 @@ export default function ClassDetailsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <div className="bg-[#1e293b] rounded-xl p-5 border border-white/5">
+              <div className="dark:bg-[#1e293b] bg-gray-200 rounded-xl p-5 border border-white/5">
                 <div className="flex items-center gap-2 mb-2">
-                  <BadgeCheck className="w-5 h-5 text-emerald-400" />
-                  <span className="text-gray-400 text-sm">Trainer</span>
+                  <BadgeCheck className="w-5 h-5 text-emerald-500" />
+                  <span className="text-gray-700 dark:text-gray-400 text-sm">
+                    Trainer
+                  </span>
                 </div>
-                <p className="text-white font-semibold">{trainerName}</p>
+                <p className="dark:text-white text-gray-700 font-semibold">
+                  {trainerName}
+                </p>
               </div>
-              <div className="bg-[#1e293b] rounded-xl p-5 border border-white/5">
+              <div className="dark:bg-[#1e293b] bg-gray-200 rounded-xl p-5 border border-white/5">
                 <div className="flex items-center gap-2 mb-2">
-                  <Clock className="w-5 h-5 text-emerald-400" />
-                  <span className="text-gray-400 text-sm">Duration</span>
+                  <Clock className="w-5 h-5 text-emerald-500" />
+                  <span className="dark:text-gray-400 text-gray-700 text-sm">
+                    Duration
+                  </span>
                 </div>
-                <p className="text-white font-semibold">
+                <p className="dark:text-white font-semibold">
                   {cls.duration || "TBA"}
                 </p>
               </div>
-              <div className="bg-[#1e293b] rounded-xl p-5 border border-white/5">
+              <div className="dark:bg-[#1e293b] bg-gray-200 rounded-xl p-5 border border-white/5">
                 <div className="flex items-center gap-2 mb-2">
-                  <Calendar className="w-5 h-5 text-emerald-400" />
-                  <span className="text-gray-400 text-sm">Schedule</span>
+                  <Calendar className="w-5 h-5 text-emerald-500" />
+                  <span className="dark:text-gray-400 text-gray-700  text-sm">
+                    Schedule
+                  </span>
                 </div>
-                <p className="text-white font-semibold text-sm">
+                <p className="dark:text-white text-gray-700  font-semibold text-sm">
                   {scheduleDays}
                 </p>
-                <p className="text-gray-400 text-xs mt-1">{scheduleTime}</p>
+                <p className="dark:text-gray-400 text-gray-700  text-xs mt-1">
+                  {scheduleTime}
+                </p>
               </div>
-              <div className="bg-[#1e293b] rounded-xl p-5 border border-white/5">
+              <div className="dark:bg-[#1e293b] bg-gray-200 rounded-xl p-5 border border-white/5">
                 <div className="flex items-center gap-2 mb-2">
-                  <Zap className="w-5 h-5 text-emerald-400" />
-                  <span className="text-gray-400 text-sm">Difficulty</span>
+                  <Zap className="w-5 h-5 text-emerald-500" />
+                  <span className="dark:text-gray-400 text-gray-700  text-sm">
+                    Difficulty
+                  </span>
                 </div>
-                <p className="text-white font-semibold">{difficulty}</p>
+                <p className="dark:text-white text-gray-700  font-semibold">
+                  {difficulty}
+                </p>
               </div>
-              <div className="bg-[#1e293b] rounded-xl p-5 border border-white/5">
+              <div className="dark:bg-[#1e293b] bg-gray-200 rounded-xl p-5 border border-white/5">
                 <div className="flex items-center gap-2 mb-2">
-                  <Tag className="w-5 h-5 text-emerald-400" />
-                  <span className="text-gray-400 text-sm">Category</span>
+                  <Tag className="w-5 h-5 text-emerald-500" />
+                  <span className="dark:text-gray-400 text-gray-700  text-sm">
+                    Category
+                  </span>
                 </div>
-                <p className="text-white font-semibold">{categoryName}</p>
+                <p className="dark:text-white text-gray-700  font-semibold">
+                  {categoryName}
+                </p>
               </div>
-              <div className="bg-[#1e293b] rounded-xl p-5 border border-white/5">
+              <div className="dark:bg-[#1e293b] bg-gray-200 rounded-xl p-5 border border-white/5">
                 <div className="flex items-center gap-2 mb-2">
                   <Star className="w-5 h-5 text-emerald-400" />
-                  <span className="text-gray-400 text-sm">Bookings</span>
+                  <span className="dark:text-gray-400 text-gray-700  text-sm">
+                    Bookings
+                  </span>
                 </div>
-                <p className="text-white font-semibold">{bookingCount}</p>
+                <p className="dark:text-white text-gray-700  font-semibold">
+                  {bookingCount}
+                </p>
               </div>
             </div>
 
-            <div className="bg-[#1e293b] rounded-xl p-6 border border-white/5">
-              <h2 className="text-xl font-bold text-white mb-4">
+            <div className="dark:bg-[#1e293b] bg-gray-200 rounded-xl p-6 border border-white/5">
+              <h2 className="text-xl font-bold dark:text-white text-gray-700  mb-4">
                 About This Class
               </h2>
-              <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+              <p className="dark:text-gray-300 text-gray-700  leading-relaxed whitespace-pre-line">
                 {cls.description || "No description available for this class."}
               </p>
             </div>
           </div>
 
           <div className="lg:col-span-1">
-            <div className="bg-[#1e293b] rounded-2xl border border-white/5 p-6 sticky top-24">
+            <div className="dark:bg-[#1e293b] bg-gray-200 rounded-2xl border border-white/5 p-6 sticky top-24">
               <div className="text-center mb-6">
-                <p className="text-gray-400 text-sm mb-1">Class Price</p>
-                <p className="text-4xl font-bold text-emerald-400">
+                <p className="dark:text-gray-400 text-gray-700  text-sm mb-1">
+                  Class Price
+                </p>
+                <p className="text-4xl font-bold text-emerald-500">
                   ${price.toFixed(2)}
                 </p>
               </div>
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Trainer</span>
-                  <span className="text-white font-medium">{trainerName}</span>
+                  <span className="dark:text-gray-400 text-gray-700 ">
+                    Trainer
+                  </span>
+                  <span className="dark:text-white text-gray-700  font-medium">
+                    {trainerName}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Duration</span>
-                  <span className="text-white font-medium">
+                  <span className="dark:text-gray-400 text-gray-700 ">
+                    Duration
+                  </span>
+                  <span className="dark:text-white text-gray-700  font-medium">
                     {cls.duration || "TBA"}
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Difficulty</span>
-                  <span className="text-white font-medium">{difficulty}</span>
+                  <span className="dark:text-gray-400 text-gray-700 ">
+                    Difficulty
+                  </span>
+                  <span className="dark:text-white text-gray-700  font-medium">
+                    {difficulty}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Schedule</span>
-                  <span className="text-white font-medium text-right">
+                  <span className="dark:text-gray-400 text-gray-700 ">
+                    Schedule
+                  </span>
+                  <span className="dark:text-white text-gray-700 font-medium text-right">
                     {scheduleDays}
                   </span>
                 </div>
@@ -271,7 +307,7 @@ export default function ClassDetailsPage() {
                 {isBooked ? (
                   <button
                     disabled
-                    className="w-full py-3.5 rounded-xl bg-gray-600/50 text-gray-400 font-semibold cursor-not-allowed border border-white/5"
+                    className="w-full py-3.5 rounded-xl dark:bg-gray-600/50 dark:text-gray-400 font-semibold cursor-not-allowed border border-white/5"
                   >
                     Already Booked
                   </button>
@@ -290,7 +326,7 @@ export default function ClassDetailsPage() {
                   className={`w-full py-3.5 rounded-xl font-semibold transition-all duration-200 active:scale-[0.98] border flex items-center justify-center gap-2 ${
                     isFavorited
                       ? "bg-red-500/15 text-red-400 border-red-500/30 hover:bg-red-500/25"
-                      : "bg-white/5 text-gray-300 border-white/10 hover:bg-white/10 hover:text-white"
+                      : "dark:bg-white/5 bg-white dark:text-gray-300 text-gray-700  border-white/10 hover:dark:bg-white/10 hover:dark:text-white hover:bg-green-400"
                   }`}
                 >
                   {favLoading ? (

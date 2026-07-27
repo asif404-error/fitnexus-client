@@ -118,6 +118,7 @@ export default function AllClassesPage() {
 
   const isDark = theme === "dark";
   const cardBg = isDark ? "bg-[#1e293b]" : "bg-white";
+  const cardFrom = isDark ? "from-[#1e293b]" : "from-white";
   const cardBorder = isDark ? "border-white/5" : "border-gray-200";
   const headingColor = isDark ? "text-white" : "text-gray-900";
   const textColor = isDark ? "text-gray-400" : "text-gray-500";
@@ -248,9 +249,9 @@ export default function AllClassesPage() {
                     <Image
                       src={cls.image}
                       alt={cls.name}
-                      width={500}
-                      height={300}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-emerald-600/30 to-emerald-900/30 flex items-center justify-center">
@@ -258,7 +259,7 @@ export default function AllClassesPage() {
                     </div>
                   )}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t ${cardBg} via-transparent to-transparent`}
+                    className={`absolute inset-0 bg-gradient-to-t ${cardFrom}  to-transparent via-transparent h-66`}
                   />
                   <span
                     className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[cls.category] || "bg-emerald-500/20 text-emerald-400"}`}

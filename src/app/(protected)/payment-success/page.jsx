@@ -47,7 +47,7 @@ export default function PaymentSuccessPage() {
 
   if (authLoading || status === "loading") {
     return (
-      <div className="min-h-screen bg-[#0a0f1a] flex items-center justify-center">
+      <div className="min-h-screen dark:bg-[#0a0f1a] flex items-center justify-center">
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-emerald-400 animate-spin mx-auto mb-4" />
           <p className="text-gray-400">Verifying your payment...</p>
@@ -58,7 +58,7 @@ export default function PaymentSuccessPage() {
 
   if (status === "error") {
     return (
-      <div className="min-h-screen bg-[#0a0f1a] flex items-center justify-center px-4">
+      <div className="min-h-screen dark:bg-[#0a0f1a] flex items-center justify-center px-4">
         <div className="max-w-md w-full text-center">
           <div className="w-24 h-24 mx-auto rounded-full bg-red-500/20 flex items-center justify-center mb-8">
             <XCircle className="w-14 h-14 text-red-400" />
@@ -90,18 +90,18 @@ export default function PaymentSuccessPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0f1a] flex items-center justify-center px-4">
+    <div className="min-h-screen dark:bg-[#0a0f1a] flex items-center justify-center px-4">
       <div className="max-w-md w-full text-center animate-slide-up">
         <div className="relative mb-8">
           <div className="w-24 h-24 mx-auto rounded-full bg-emerald-500/20 flex items-center justify-center animate-pulse-emerald">
-            <CheckCircle className="w-14 h-14 text-emerald-400" />
+            <CheckCircle className="w-14 h-14 text-emerald-500" />
           </div>
         </div>
 
-        <h1 className="text-3xl font-bold text-white mb-4">
+        <h1 className="text-3xl font-bold dark:text-white mb-4">
           Payment Successful!
         </h1>
-        <p className="text-gray-400 leading-relaxed mb-8 max-w-sm mx-auto">
+        <p className="dark:text-gray-400 leading-relaxed mb-8 max-w-sm mx-auto">
           Your booking has been confirmed. You can view your booked classes in
           the dashboard.
         </p>
@@ -116,7 +116,7 @@ export default function PaymentSuccessPage() {
           </Link>
           <Link
             href="/all-classes"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-white/5 text-gray-300 font-semibold hover:bg-white/10 transition-all duration-200 border border-white/10"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl dark:bg-white/5 bg-gray-200 dark:text-gray-300 font-semibold hover:dark:bg-white/10 hover:bg-gray-300 transition-all duration-200 border border-white/10"
           >
             Browse More Classes
           </Link>

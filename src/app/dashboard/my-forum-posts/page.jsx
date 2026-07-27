@@ -48,7 +48,7 @@ export default function MyForumPostsPage() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold dark:text-white mb-3">
             My Forum Posts
           </h1>
           <p className="text-gray-400 text-lg">Manage your published posts</p>

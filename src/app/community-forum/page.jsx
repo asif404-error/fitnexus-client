@@ -41,6 +41,7 @@ export default function CommunityForumPage() {
 
   const isDark = theme === "dark";
   const cardBg = isDark ? "bg-[#1e293b]" : "bg-white";
+  const cardFrom = isDark ? "from-[#1e293b]" : "from-white";
   const cardBorder = isDark ? "border-white/5" : "border-gray-200";
   const headingColor = isDark ? "text-white" : "text-gray-900";
   const textColor = isDark ? "text-gray-400" : "text-gray-500";
@@ -132,7 +133,7 @@ export default function CommunityForumPage() {
                     </div>
                   )}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t ${cardBg} via-transparent to-transparent`}
+                    className={`absolute inset-0 bg-gradient-to-t ${cardFrom}  to-transparent via-transparent h-66`}
                   />
                 </div>
                 <div className="p-5">
@@ -154,7 +155,7 @@ export default function CommunityForumPage() {
                       <span
                         className={`text-xs font-medium ${authorNameColor}`}
                       >
-                        {post.author?.name || "Anonymous"}
+                        {post.authorName || "Anonymous"}
                       </span>
                       {post.createdAt && (
                         <span className={`text-[10px] ${timeColor} ml-2`}>

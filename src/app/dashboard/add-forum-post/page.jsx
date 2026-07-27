@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import { PenSquare, Image, FileText, Send } from "lucide-react";
+import { PenSquare, Image as TImage, FileText, Send } from "lucide-react";
 import toast from "react-hot-toast";
 import api from "@/lib/api";
 import Image from "next/image";
+import DemoImg from "../../../../public/demo.avif";
 
 export default function AddForumPostPage() {
   const router = useRouter();
@@ -23,6 +24,21 @@ export default function AddForumPostPage() {
   const watchTitle = watch("title", "");
   const watchDescription = watch("description", "");
   const watchImage = watch("image", "");
+  const [imgError, setImgError] = useState(false);
+
+  useEffect(() => {
+    setImgError(false);
+  }, [watchImage]);
+
+  const isValidImageUrl = (url) => {
+    if (!url) return false;
+    try {
+      const parsed = new URL(url);
+      return parsed.protocol === "http:" || parsed.protocol === "https:";
+    } catch {
+      return false;
+    }
+  };
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -42,7 +58,7 @@ export default function AddForumPostPage() {
   };
 
   const inputClass =
-    "w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all";
+    "w-full pl-11 pr-4 py-3 dark:bg-[#0f172a] bg-gray-100 border border-white/10 rounded-xl dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all";
 
   return (
     <div className="min-h-screen py-10 md:py-16">
@@ -53,7 +69,7 @@ export default function AddForumPostPage() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold dark:text-white mb-3">
             Publish Forum Post
           </h1>
           <p className="text-gray-400 text-lg">
@@ -66,7 +82,7 @@ export default function AddForumPostPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-3 bg-[#1e293b] rounded-2xl border border-white/10 p-6 md:p-8"
+            className="lg:col-span-3 dark:bg-[#1e293b] bg-sky-900 rounded-2xl border border-white/10 p-6 md:p-8"
           >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
@@ -94,10 +110,11 @@ export default function AddForumPostPage() {
                   Image URL
                 </label>
                 <div className="relative">
-                  <Image className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+                  <TImage className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                   <input
                     type="url"
                     placeholder="https://example.com/image.jpg"
+                    alt="image"
                     className={inputClass}
                     {...register("image")}
                   />
@@ -167,29 +184,34 @@ export default function AddForumPostPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <div className="bg-[#1e293b] rounded-2xl border border-white/10 overflow-hidden sticky top-10">
+            <div className="dark:bg-[#1e293b] bg-sky-900 rounded-2xl border border-white/10 overflow-hidden sticky top-10">
               <div className="px-6 py-4 border-b border-white/10">
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+                <h3 className="text-sm font-semibold dark:text-gray-400 text-white uppercase tracking-wider">
                   Preview
                 </h3>
               </div>
 
-              {watchImage ? (
+              {isValidImageUrl(watchImage) && !imgError ? (
                 <div className="h-40 overflow-hidden">
                   <Image
+                    key={watchImage}
                     src={watchImage}
                     alt="Preview"
                     width={500}
                     height={300}
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.style.display = "none";
-                    }}
+                    onError={() => setImgError(true)}
                   />
                 </div>
               ) : (
                 <div className="h-40 bg-gradient-to-br from-emerald-600/20 to-emerald-900/20 flex items-center justify-center">
-                  <Image className="w-10 h-10 text-emerald-400/30" />
+                  <Image
+                    className="w-10 h-10 text-emerald-400/30"
+                    src={DemoImg}
+                    alt={"image"}
+                    height={10}
+                    width={10}
+                  />
                 </div>
               )}
 

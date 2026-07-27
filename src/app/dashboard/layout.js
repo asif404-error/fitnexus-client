@@ -215,12 +215,12 @@ export default function DashboardLayout({ children }) {
               href={link.href}
               className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                 active
-                  ? "bg-emerald-500/20 text-emerald-400"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
+                  ? "dark:bg-emerald-500/20 bg-gray-300 dark:text-emerald-400"
+                  : "dark:text-gray-400 text-white hover:text-white hover:bg-white/5"
               }`}
             >
               <Icon
-                className={`w-5 h-5 flex-shrink-0 ${active ? "text-emerald-400" : "text-gray-500"}`}
+                className={`w-5 h-5 flex-shrink-0 ${active ? "dark:text-emerald-500 text-black" : "dark:text-gray-500 text-white"}`}
               />
               <span>{link.label}</span>
             </Link>
@@ -231,7 +231,7 @@ export default function DashboardLayout({ children }) {
       <div className="p-4 border-t border-white/5">
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 w-full px-4 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition-all duration-200 cursor-pointer"
+          className="flex items-center gap-3 w-full px-4 py-2.5 rounded-xl text-sm font-medium dark:text-gray-400 text-white hover:text-red-400 hover:bg-red-500/10 transition-all duration-200 cursor-pointer"
         >
           <HiOutlineLogout className="w-5 h-5" />
           <span>Logout</span>
@@ -241,8 +241,8 @@ export default function DashboardLayout({ children }) {
   );
 
   return (
-    <div className="min-h-screen bg-[#0a0f1a] flex">
-      <div className="hidden lg:block fixed inset-y-0 left-0 w-[280px] bg-[#0f172a] border-r border-white/5 z-40">
+    <div className="min-h-screen dark:bg-[#0a0f1a] flex">
+      <div className="hidden lg:block fixed inset-y-0 left-0 w-[280px] dark:bg-[#0f172a] bg-sky-900 border-r border-white/5 z-40">
         <SidebarContent />
       </div>
 

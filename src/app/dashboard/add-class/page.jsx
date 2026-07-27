@@ -85,7 +85,7 @@ export default function AddClassPage() {
   };
 
   const inputClass =
-    "w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all";
+    "w-full pl-11 pr-4 py-3 dark:bg-[#0f172a] bg-gray-100 border border-white/10 rounded-xl dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all";
 
   return (
     <div className="min-h-screen py-10 md:py-16">
@@ -108,10 +108,9 @@ export default function AddClassPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="bg-[#1e293b] rounded-2xl border border-white/10 p-6 md:p-8"
+          className="dark:bg-[#1e293b] bg-sky-900 rounded-2xl border border-white/10 p-6 md:p-8"
         >
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Class Name
@@ -155,7 +154,7 @@ export default function AddClassPage() {
                 <div className="relative">
                   <Tag className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                   <select
-                    className={`${inputClass} appearance-none cursor-pointer`}
+                    className={`${inputClass} appearance-none  cursor-pointer`}
                     {...register("category", {
                       required: "Category is required",
                     })}

@@ -46,9 +46,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 group">
-            <Dumbbell className="w-7 h-7 text-emerald-400 transition-transform group-hover:rotate-12" />
+            <Dumbbell className="w-7 h-7 text-emerald-500 transition-transform group-hover:rotate-12" />
             <span className={`text-xl font-bold tracking-tight ${textColor}`}>
-              Fit<span className="text-emerald-400">Nexus</span>
+              Fit<span className="text-emerald-500">Nexus</span>
             </span>
           </Link>
 
@@ -58,7 +58,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  isActive(link.href) ? activeBg : `${inactiveText} ${hoverBg}`
+                  isActive(link.href) ? `${activeBg} text-green-600` : `${inactiveText} ${hoverBg}`
                 }`}
               >
                 {link.label}

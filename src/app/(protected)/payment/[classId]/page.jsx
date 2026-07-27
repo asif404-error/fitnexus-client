@@ -65,7 +65,9 @@ export default function PaymentPage() {
       }
     } catch (err) {
       const msg =
-        err.response?.data?.message || err.response?.data?.error || "Payment failed. Please try again.";
+        err.response?.data?.message ||
+        err.response?.data?.error ||
+        "Payment failed. Please try again.";
       toast.error(msg);
       setProcessing(false);
     }
@@ -81,14 +83,13 @@ export default function PaymentPage() {
 
   if (!cls) return null;
 
-  const trainerName =
-    cls.trainer?.name || cls.trainerName || "TBA";
+  const trainerName = cls.trainer?.name || cls.trainerName || "TBA";
   const categoryName =
     cls.category?.name || cls.categoryName || cls.category || "General";
   const price = Number(cls.price) || 0;
 
   return (
-    <div className="min-h-screen bg-[#0a0f1a]">
+    <div className="min-h-screen dark:bg-[#0a0f1a]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <Link
           href={`/class-details/${classId}`}
@@ -99,29 +100,28 @@ export default function PaymentPage() {
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-   
           <div className="lg:col-span-2">
-            <div className="bg-[#1e293b] rounded-2xl border border-white/5 p-6">
-              <h2 className="text-lg font-bold text-white mb-6">
+            <div className="dark:bg-[#1e293b] bg-gray-200 rounded-2xl border border-white/5 p-6">
+              <h2 className="text-lg font-bold dark:text-white text-gray-700 mb-6">
                 Order Summary
               </h2>
 
               <div className="space-y-4 mb-6">
-                <div className="bg-[#0f172a] rounded-xl p-4 border border-white/5">
-                  <h3 className="text-white font-semibold text-lg mb-1">
+                <div className="dark:bg-[#0f172a] rounded-xl p-4 border border-white/5">
+                  <h3 className="dark:text-white font-semibold text-lg mb-1">
                     {cls.name}
                   </h3>
                   <div className="flex flex-wrap gap-2 mt-2">
-                    <span className="inline-flex items-center gap-1.5 text-xs text-gray-400 bg-white/5 px-2.5 py-1 rounded-full">
-                      <BadgeCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="inline-flex items-center gap-1.5 text-xs dark:text-gray-400 dark:bg-white/5 px-2.5 py-1 rounded-full">
+                      <BadgeCheck className="w-3.5 h-3.5 text-emerald-500" />
                       {trainerName}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 text-xs text-gray-400 bg-white/5 px-2.5 py-1 rounded-full">
-                      <Tag className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="inline-flex items-center gap-1.5 text-xs dark:text-gray-400 dark:bg-white/5 px-2.5 py-1 rounded-full">
+                      <Tag className="w-3.5 h-3.5 text-emerald-500" />
                       {categoryName}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 text-xs text-gray-400 bg-white/5 px-2.5 py-1 rounded-full">
-                      <Clock className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="inline-flex items-center gap-1.5 text-xs dark:text-gray-400 dark:bg-white/5 px-2.5 py-1 rounded-full">
+                      <Clock className="w-3.5 h-3.5 text-emerald-500" />
                       {cls.duration || "TBA"}
                     </span>
                   </div>
@@ -130,16 +130,16 @@ export default function PaymentPage() {
 
               <div className="border-t border-white/5 pt-4 space-y-3">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Subtotal</span>
-                  <span className="text-white">${price.toFixed(2)}</span>
+                  <span className="dark:text-gray-400">Subtotal</span>
+                  <span className="dark:text-white">${price.toFixed(2)}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Tax</span>
-                  <span className="text-white">$0.00</span>
+                  <span className="dark:text-gray-400">Tax</span>
+                  <span className="dark:text-white">$0.00</span>
                 </div>
                 <div className="border-t border-white/5 pt-3 flex items-center justify-between">
-                  <span className="text-white font-semibold">Total</span>
-                  <span className="text-emerald-400 text-2xl font-bold">
+                  <span className="dark:text-white font-semibold">Total</span>
+                  <span className="text-emerald-500 text-2xl font-bold">
                     ${price.toFixed(2)}
                   </span>
                 </div>
@@ -148,37 +148,37 @@ export default function PaymentPage() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="bg-[#1e293b] rounded-2xl border border-white/5 p-6">
-              <h2 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                <CreditCard className="w-5 h-5 text-emerald-400" />
+            <div className="dark:bg-[#1e293b] bg-gray-200 rounded-2xl border border-white/5 p-6">
+              <h2 className="text-lg font-bold darkLtext-white mb-6 flex items-center gap-2">
+                <CreditCard className="w-5 h-5 text-emerald-500" />
                 Payment Details
               </h2>
 
               <div className="space-y-4 mb-6">
                 <div>
-                  <label className="block text-sm text-gray-400 mb-2">
+                  <label className="block text-sm dark:text-gray-400 mb-2">
                     Cardholder Name
                   </label>
-                  <div className="w-full bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/25 transition-colors">
+                  <div className="w-full dark:bg-[#0f172a] bg-gray-100 border border-white/10 rounded-xl px-4 py-3.5 dark:text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/25 transition-colors">
                     {user?.name || "Cardholder Name"}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm text-gray-400 mb-2">
+                  <label className="block text-sm dark:text-gray-400 mb-2">
                     Card Details
                   </label>
-                  <div className="w-full bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/25 transition-colors">
+                  <div className="w-full dark:bg-[#0f172a] bg-gray-100 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/25 transition-colors">
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-500">
+                      <span className="dark:text-gray-500 text-gray-700">
                         **** **** **** ****
                       </span>
                       <div className="flex items-center gap-2">
-                        <CreditCard className="w-5 h-5 text-gray-500" />
+                        <CreditCard className="w-5 h-5 dark:text-gray-500" />
                       </div>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-500 mt-2">
+                  <p className="text-xs dark:text-gray-500 mt-2">
                     You will be redirected to Stripe&apos;s secure checkout to
                     complete your payment.
                   </p>
@@ -186,9 +186,10 @@ export default function PaymentPage() {
               </div>
 
               <div className="flex items-center gap-2 mb-6 p-3 bg-emerald-500/10 rounded-xl border border-emerald-500/20">
-                <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-                <p className="text-xs text-emerald-400/80">
-                  Your payment is secured with 256-bit SSL encryption via Stripe.
+                <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0" />
+                <p className="text-xs text-emerald-500">
+                  Your payment is secured with 256-bit SSL encryption via
+                  Stripe.
                 </p>
               </div>
 

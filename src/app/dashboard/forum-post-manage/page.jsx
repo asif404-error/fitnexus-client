@@ -79,7 +79,7 @@ export default function ForumPostManagePage() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold dark:text-white mb-3">
             Forum Post Management
           </h1>
           <p className="text-gray-400 text-lg">
@@ -117,26 +117,25 @@ export default function ForumPostManagePage() {
           </div>
         ) : (
           <>
-
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
               className="hidden md:block bg-[#1e293b] rounded-2xl border border-white/5 overflow-hidden"
             >
-              <table className="w-full">
+              <table className="w-full bg-sky-900 dark:bg-black">
                 <thead>
                   <tr className="border-b border-white/5">
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Title
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Author
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Date
                     </th>
-                    <th className="text-right px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-right px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Actions
                     </th>
                   </tr>
@@ -167,10 +166,10 @@ export default function ForumPostManagePage() {
                           </span>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-gray-400">
-                        {post.author?.name || "Anonymous"}
+                      <td className="px-6 py-4 dark:text-gray-400 text-white">
+                        {post.authorName || "Anonymous"}
                       </td>
-                      <td className="px-6 py-4 text-gray-400 text-sm">
+                      <td className="px-6 py-4 dark:text-gray-400 text-white text-sm">
                         {post.createdAt
                           ? format(new Date(post.createdAt), "MMM d, yyyy")
                           : "N/A"}

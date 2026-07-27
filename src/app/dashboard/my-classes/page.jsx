@@ -162,7 +162,7 @@ export default function MyClassesPage() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold dark:text-white mb-3">
             My Classes
           </h1>
           <p className="text-gray-400 text-lg">Manage your fitness classes</p>
@@ -207,31 +207,29 @@ export default function MyClassesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-[#1e293b] rounded-2xl border border-white/10 overflow-hidden"
+                className="dark:bg-[#1e293b] bg-sky-900 rounded-2xl border border-white/10 overflow-hidden"
               >
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-white/10">
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-white px-6 py-4">
                           Class Name
                         </th>
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-white px-6 py-4">
                           Category
                         </th>
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">
-                          Difficulty
-                        </th>
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">
+                      
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-white px-6 py-4">
                           Duration
                         </th>
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-white px-6 py-4">
                           Price
                         </th>
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-white px-6 py-4">
                           Status
                         </th>
-                        <th className="text-right text-sm font-semibold text-gray-400 px-6 py-4">
+                        <th className="text-right text-sm font-semibold dark:text-gray-400 text-white px-6 py-4">
                           Actions
                         </th>
                       </tr>
@@ -252,11 +250,7 @@ export default function MyClassesPage() {
                               {cls.category}
                             </span>
                           </td>
-                          <td className="px-6 py-4">
-                            <span className="text-sm text-gray-300">
-                              {cls.difficulty}
-                            </span>
-                          </td>
+                          
                           <td className="px-6 py-4">
                             <span className="text-sm text-gray-300">
                               {cls.duration} min

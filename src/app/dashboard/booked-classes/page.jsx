@@ -80,7 +80,7 @@ export default function BookedClassesPage() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">My Booked Classes</h1>
+          <h1 className="text-3xl md:text-4xl font-bold dark:text-white mb-3">My Booked Classes</h1>
           <p className="text-gray-400 text-lg">Manage and view your upcoming class bookings</p>
         </motion.div>
 
@@ -112,24 +112,24 @@ export default function BookedClassesPage() {
           </motion.div>
         ) : (
           <>
-            {/* Desktop Table */}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="hidden md:block"
             >
-              <div className="bg-[#1e293b] rounded-2xl border border-white/5 overflow-hidden">
+              <div className="dark:bg-[#1e293b] bg-sky-900 rounded-2xl border border-white/5 overflow-hidden">
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-white/5">
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">Class Name</th>
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">Trainer</th>
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">Schedule</th>
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">Price</th>
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">Booked Date</th>
-                        <th className="text-left text-sm font-semibold text-gray-400 px-6 py-4">Action</th>
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-gray-200 px-6 py-4">Class Name</th>
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-gray-200 px-6 py-4">Trainer</th>
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-gray-200  px-6 py-4">Schedule</th>
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-gray-200 px-6 py-4">Price</th>
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-gray-200  px-6 py-4">Booked Date</th>
+                        <th className="text-left text-sm font-semibold dark:text-gray-400 text-gray-200  px-6 py-4">Action</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-white/5">
@@ -155,12 +155,12 @@ export default function BookedClassesPage() {
                             <td className="px-6 py-4">
                               <span className="text-white font-medium">{className}</span>
                             </td>
-                            <td className="px-6 py-4 text-gray-300 text-sm">{trainerName}</td>
-                            <td className="px-6 py-4 text-gray-300 text-sm">{schedule}</td>
+                            <td className="px-6 py-4 dark:text-gray-300 text-white text-sm">{trainerName}</td>
+                            <td className="px-6 py-4 dark:text-gray-300 text-white  text-sm">{schedule}</td>
                             <td className="px-6 py-4 text-emerald-400 font-semibold text-sm">
                               ${price.toFixed(2)}
                             </td>
-                            <td className="px-6 py-4 text-gray-400 text-sm">
+                            <td className="px-6 py-4 dark:text-gray-300 text-white  text-sm">
                               {bookedDate ? format(new Date(bookedDate), 'MMM d, yyyy') : 'N/A'}
                             </td>
                             <td className="px-6 py-4">
@@ -185,7 +185,6 @@ export default function BookedClassesPage() {
               </div>
             </motion.div>
 
-            {/* Mobile Cards */}
             <div className="md:hidden space-y-4">
               {bookings.map((booking, idx) => {
                 const cls = booking.class || booking.classId || booking;

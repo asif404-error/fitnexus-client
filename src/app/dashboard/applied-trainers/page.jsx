@@ -89,7 +89,7 @@ export default function AppliedTrainersPage() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold dark:text-white mb-3">
             Trainer Applications
           </h1>
           <p className="text-gray-400 text-lg">
@@ -134,19 +134,19 @@ export default function AppliedTrainersPage() {
               transition={{ duration: 0.4 }}
               className="hidden md:block bg-[#1e293b] rounded-2xl border border-white/5 overflow-hidden"
             >
-              <table className="w-full">
+              <table className="w-full bg-sky-900 dark:bg-black">
                 <thead>
                   <tr className="border-b border-white/5">
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Name
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Email
                     </th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Applied Date
                     </th>
-                    <th className="text-right px-6 py-4 text-sm font-semibold text-gray-400">
+                    <th className="text-right px-6 py-4 text-sm font-semibold text-white dark:text-gray-400">
                       Actions
                     </th>
                   </tr>
@@ -177,8 +177,8 @@ export default function AppliedTrainersPage() {
                           </span>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-gray-400">{app.email}</td>
-                      <td className="px-6 py-4 text-gray-400">
+                      <td className="px-6 py-4 text-white dark:text-gray-400">{app.email}</td>
+                      <td className="px-6 py-4 text-white dark:text-gray-400">
                         {app.createdAt
                           ? format(new Date(app.createdAt), "MMM d, yyyy")
                           : "N/A"}
