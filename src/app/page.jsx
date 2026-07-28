@@ -434,12 +434,12 @@ export default function HomePage() {
                       ) : (
                         <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center">
                           <span className="text-[10px] text-emerald-400 font-bold">
-                            {(post.author?.name || "U")[0]}
+                            {(post.authorName || "U")[0]}
                           </span>
                         </div>
                       )}
                       <span className={`text-xs ${textColor}`}>
-                        {post.author?.name || "Anonymous"}
+                        {post.authorName || "Anonymous"}
                       </span>
                     </div>
                     <h3
