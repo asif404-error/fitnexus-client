@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "FitPulse - Fitness & Gym Management Platform",
+  title: "FitNexus - Fitness & Gym Management Platform",
   description:
     "Your all-in-one fitness and gym management platform. Track workouts, join classes, book sessions, and connect with the fitness community.",
 };
