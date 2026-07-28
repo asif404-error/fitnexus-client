@@ -144,12 +144,12 @@ export default function MyForumPostsPage() {
                   <p className="text-sm text-gray-400 line-clamp-3">
                     {post.description?.slice(0, 150) || ""}
                   </p>
-                  <Link
+                  {/* <Link
                     href={`/forum-post/${post._id}`}
                     className={`inline-flex items-center gap-1 px-4 py-2 rounded-xl ${readMoreBg} text-emerald-400 text-sm font-medium hover:bg-emerald-500 hover:text-white transition-all duration-300`}
                   >
                     Read More
-                  </Link>
+                  </Link> */}
                 </div>
               </motion.div>
             ))}

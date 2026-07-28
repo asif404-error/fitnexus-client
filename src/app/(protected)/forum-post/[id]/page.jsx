@@ -468,13 +468,13 @@ export default function ForumPostDetailPage() {
                       value={commentText}
                       onChange={(e) => setCommentText(e.target.value)}
                       rows={3}
-                      className="w-full px-4 py-3 dark:bg-[#1e293b] border border-white/10 rounded-xl dark:text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 resize-none transition-all"
+                      className="w-full px-4 py-3 dark:bg-[#1e293b] bg-gray-200 border border-white/10 rounded-xl dark:text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 resize-none transition-all"
                     />
                     <div className="flex justify-end mt-2">
                       <button
                         onClick={handleAddComment}
                         disabled={submittingComment || !commentText.trim()}
-                        className="flex items-center gap-2 px-5 py-2 bg-emerald-600 text-white text-sm font-medium rounded-xl hover:bg-emerald-700 transition-all disabled:opacity-50 cursor-pointer"
+                        className="flex items-center gap-2 px-5 py-2 bg-emerald-700 text-white text-sm font-medium rounded-xl hover:bg-emerald-800 transition-all disabled:opacity-50 cursor-pointer"
                       >
                         <Send className="w-4 h-4" />
                         {submittingComment ? "Posting..." : "Post Comment"}
