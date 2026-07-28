@@ -8,6 +8,7 @@ import { formatDistanceToNow } from "date-fns";
 import toast from "react-hot-toast";
 import api from "@/lib/api";
 import Image from "next/image";
+import { useTheme } from "@/providers/ThemeProvider";
 
 export default function MyForumPostsPage() {
   const [posts, setPosts] = useState([]);
@@ -38,6 +39,8 @@ export default function MyForumPostsPage() {
       toast.error(err.response?.data?.message || "Failed to delete post");
     }
   };
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   const readMoreBg = isDark ? "bg-white/5" : "bg-gray-100";
 
   return (
@@ -144,12 +147,12 @@ export default function MyForumPostsPage() {
                   <p className="text-sm text-gray-400 line-clamp-3">
                     {post.description?.slice(0, 150) || ""}
                   </p>
-                  {/* <Link
+                  <Link
                     href={`/forum-post/${post._id}`}
                     className={`inline-flex items-center gap-1 px-4 py-2 rounded-xl ${readMoreBg} text-emerald-400 text-sm font-medium hover:bg-emerald-500 hover:text-white transition-all duration-300`}
                   >
                     Read More
-                  </Link> */}
+                  </Link>
                 </div>
               </motion.div>
             ))}
