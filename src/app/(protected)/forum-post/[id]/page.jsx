@@ -102,7 +102,7 @@ function CommentItem({ comment, postId, user, onRefresh, depth = 0 }) {
             )}
             <div>
               <span className="text-sm font-medium text-white">
-                {comment.author?.name || "Anonymous"}
+                {comment.authorName || "Anonymous"}
               </span>
               {comment.createdAt && (
                 <span className="text-xs text-gray-500 ml-2">
@@ -144,13 +144,13 @@ function CommentItem({ comment, postId, user, onRefresh, depth = 0 }) {
               value={editText}
               onChange={(e) => setEditText(e.target.value)}
               rows={2}
-              className="w-full px-3 py-2 bg-[#0f172a] border border-white/10 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 resize-none"
+              className="w-full px-3 py-2 dark:bg-[#0f172a] border border-white/10 rounded-lg dark:text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 resize-none"
             />
             <div className="flex gap-2">
               <button
                 onClick={handleEdit}
                 disabled={submitting}
-                className="px-3 py-1.5 bg-emerald-500 text-white text-xs font-medium rounded-lg hover:bg-emerald-600 transition-colors disabled:opacity-50 cursor-pointer"
+                className="px-3 py-1.5 bg-emerald-700 text-white text-xs font-medium rounded-lg hover:bg-emerald-900 transition-colors disabled:opacity-50 cursor-pointer"
               >
                 {submitting ? "Saving..." : "Save"}
               </button>
@@ -391,7 +391,7 @@ export default function ForumPostDetailPage() {
                 )}
                 <div>
                   <p className="text-sm font-medium text-white">
-                    {post.author?.name || "Anonymous"}
+                    {post.authorName || "Anonymous"}
                   </p>
                   {post.createdAt && (
                     <p className="text-xs text-gray-500">
@@ -416,7 +416,9 @@ export default function ForumPostDetailPage() {
                   className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 text-gray-400 hover:bg-emerald-500/20 hover:text-emerald-400 transition-all disabled:opacity-50 cursor-pointer"
                 >
                   <ThumbsUp className="w-4 h-4" />
-                  <span className="text-sm font-medium">{post.likes || 0}</span>
+                  <span className="text-sm font-medium">
+                    {post.likes.length || 0}
+                  </span>
                 </button>
                 <button
                   onClick={handleDislike}
@@ -425,7 +427,7 @@ export default function ForumPostDetailPage() {
                 >
                   <ThumbsDown className="w-4 h-4" />
                   <span className="text-sm font-medium">
-                    {post.dislikes || 0}
+                    {post.dislikes.length || 0}
                   </span>
                 </button>
                 {user.isBlocked && (
@@ -439,7 +441,7 @@ export default function ForumPostDetailPage() {
           </article>
 
           <section className="mt-10">
-            <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <h2 className="text-xl font-bold dark:text-white mb-6 flex items-center gap-2">
               <MessageSquare className="w-5 h-5 text-emerald-400" />
               Comments ({comments.length})
             </h2>
@@ -466,13 +468,13 @@ export default function ForumPostDetailPage() {
                       value={commentText}
                       onChange={(e) => setCommentText(e.target.value)}
                       rows={3}
-                      className="w-full px-4 py-3 bg-[#1e293b] border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 resize-none transition-all"
+                      className="w-full px-4 py-3 dark:bg-[#1e293b] border border-white/10 rounded-xl dark:text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 resize-none transition-all"
                     />
                     <div className="flex justify-end mt-2">
                       <button
                         onClick={handleAddComment}
                         disabled={submittingComment || !commentText.trim()}
-                        className="flex items-center gap-2 px-5 py-2 bg-emerald-500 text-white text-sm font-medium rounded-xl hover:bg-emerald-600 transition-all disabled:opacity-50 cursor-pointer"
+                        className="flex items-center gap-2 px-5 py-2 bg-emerald-600 text-white text-sm font-medium rounded-xl hover:bg-emerald-700 transition-all disabled:opacity-50 cursor-pointer"
                       >
                         <Send className="w-4 h-4" />
                         {submittingComment ? "Posting..." : "Post Comment"}

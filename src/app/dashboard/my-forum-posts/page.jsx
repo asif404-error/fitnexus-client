@@ -38,6 +38,7 @@ export default function MyForumPostsPage() {
       toast.error(err.response?.data?.message || "Failed to delete post");
     }
   };
+  const readMoreBg = isDark ? "bg-white/5" : "bg-gray-100";
 
   return (
     <div className="min-h-screen py-10 md:py-16">
@@ -143,6 +144,12 @@ export default function MyForumPostsPage() {
                   <p className="text-sm text-gray-400 line-clamp-3">
                     {post.description?.slice(0, 150) || ""}
                   </p>
+                  <Link
+                    href={`/forum-post/${post._id}`}
+                    className={`inline-flex items-center gap-1 px-4 py-2 rounded-xl ${readMoreBg} text-emerald-400 text-sm font-medium hover:bg-emerald-500 hover:text-white transition-all duration-300`}
+                  >
+                    Read More
+                  </Link>
                 </div>
               </motion.div>
             ))}
