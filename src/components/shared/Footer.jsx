@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
 
         <div className={`border-t ${border} mt-10 pt-6 text-center text-sm ${mutedText}`}>
-          &copy; 2024 FitNexus. All rights reserved.
+          &copy; 2026 FitNexus. All rights reserved.
         </div>
       </div>
     </footer>
