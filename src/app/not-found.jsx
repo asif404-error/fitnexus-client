@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] px-4 text-center">
       <div className="mb-8 text-8xl">🏋️</div>
-      <h1 className="text-4xl font-bold text-white mb-4">
+      <h1 className="text-4xl font-bold dark:text-white text-gray-700 mb-4">
         Oops! Page Not Found
       </h1>
       <p className="text-gray-400 max-w-md mb-8 leading-relaxed">
